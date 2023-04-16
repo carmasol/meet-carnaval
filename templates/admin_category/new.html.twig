@@ -1,0 +1,12 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle catégorie{% endblock %}
+
+{% block body %}
+    <h1>Créer une catégorie</h1>
+
+    {{ include('admin_category/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_category_index') }}">Retour à la liste</a>
+{% endblock %}

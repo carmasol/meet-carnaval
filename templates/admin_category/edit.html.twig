@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer catégorie{% endblock %}
+
+{% block body %}
+    <h1>Créer catégorie </h1>
+
+    {{ include('admin_category/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_category_index') }}">Retour à la liste</a>
+
+    {{ include('admin_category/_delete_form.html.twig') }}
+{% endblock %}

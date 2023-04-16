@@ -1,0 +1,12 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveaux Commentaire{% endblock %}
+
+{% block body %}
+    <h1>Créer un commentaire</h1>
+
+    {{ include('admin_comment/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_comment_index') }}">retour à la liste</a>
+{% endblock %}

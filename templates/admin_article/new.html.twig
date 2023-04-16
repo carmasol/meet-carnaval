@@ -1,0 +1,12 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Article{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouvelle article</h1>
+
+    {{ include('admin_article/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_article_index') }}">retour à la liste</a>
+{% endblock %}

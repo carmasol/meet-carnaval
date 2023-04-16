@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}créer un commentaire{% endblock %}
+
+{% block body %}
+    <h1>Créer un commentaire</h1>
+
+{% if is_granted ('ROLE_USER')%}
+    {{ include('comment/_form.html.twig') }}
+{% endif %}
+
+{% endblock %}

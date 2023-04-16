@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste article{% endblock %}
+
+{% block body %}
+    <h1>Liste article</h1>
+    <a href="{{ path('app_admin_article_new') }}">Créer un article</a>
+{% for article in articles %}
+
+        <div>
+            <div class='lineArticle'>
+                <div>{{ article.id }}</div>
+                <div>{{ article.title }}</div>
+                <div>{{ article.content|truncate(300) }}</div>
+                <div>
+                <br>
+                    <a href="{{ path('app_admin_article_edit', {'id': article.id}) }}">Modifier</a>
+                    <a href="{{ path('app_admin_article_show', {'id': article.id}) }}">Afficher</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun enregistrement trouvé </td>
+            </tr>    
+        {% endfor %}
+    
+
+    
+{% endblock %}

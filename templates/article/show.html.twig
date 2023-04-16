@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>image</th>
+                <td><img src="/../../uploads/images/{{ article.path }}" class="card-img-top article-img" alt="images article"></td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ article.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ article.content }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <div>
+        <a href="{{ path('app_comment_new', {'id': article.id}) }}">Ajouter un commentaire</a>
+    </div>
+
+    <div class="comment">
+        {% for comment in comments %}
+            <div>{{ comment.user.pseudo }} a dit :</div>
+            <div>{{ comment.content  }}</div>
+            <div>{{ comment.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</div>
+        {% endfor  %}
+    </div>
+
+{% endblock %} 

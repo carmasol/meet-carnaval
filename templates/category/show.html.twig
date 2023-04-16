@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie{% endblock %}
+
+{% block body %}
+    <h1>{{ category.name }}</h1>
+
+    <a href="{{ path('app_category_index') }}">retour à la liste des catégories</a>
+
+    <div class="mt-5">
+
+        <h1>Article</h1>
+        <div class="container-card">
+                {% for article in articles %}
+                        {% include 'card.html.twig' %}
+                {% else %}
+                    <div>aucun enregistrement trouvé</div>
+                {% endfor %}
+        </div>    
+    </div>
+
+{% endblock %}
