@@ -9,13 +9,12 @@
 
         <div>
             <div class='lineArticle'>
-                <div>{{ article.id }}</div>
+                <div><img src="/../../uploads/images/{{ article.path }}" class="card-img-top article-img" alt="images article"></div>
                 <div>{{ article.title }}</div>
                 <div>{{ article.content|truncate(300) }}</div>
                 <div>
                 <br>
                     <a href="{{ path('app_admin_article_edit', {'id': article.id}) }}">Modifier</a>
-                    <a href="{{ path('app_admin_article_show', {'id': article.id}) }}">Afficher</a>
                 </div>
             </div>
         </div>

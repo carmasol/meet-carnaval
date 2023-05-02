@@ -31,28 +31,24 @@ class AdminArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $brochureFile = $form->get('image')->getData();
-            dump($brochureFile);
-            // this condition is needed because the 'brochure' field is not required
-            // so the PDF file must be processed only when a file is uploaded
-            if ($brochureFile) {
-                $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
+            $image = $form->get('image')->getData();
+            dump($image);
+        
+            if ($image) {
+                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$image->guessExtension();
 
-                // Move the file to the directory where images are stored
                 try {
-                    $brochureFile->move(
+                    $image->move(
                         $this->getParameter('images_directory'),
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
+
                 }
 
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
+                
                 $article->setPath($newFilename);}
             $articleRepository->save($article, true);
 
@@ -77,10 +73,15 @@ class AdminArticleController extends AbstractController
     public function edit(Request $request, Article $article, ArticleRepository $articleRepository): Response
     {
         $form = $this->createForm(ArticleType::class, $article);
+        $image = $form->get('image')->getData();
         $form->handleRequest($request);
+
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
             $articleRepository->save($article, true);
+
+            
 
             return $this->redirectToRoute('app_admin_article_index', [], Response::HTTP_SEE_OTHER);
         }
