@@ -8,16 +8,29 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title')
-            ->add('content')
-            ->add('user')
-            ->add('category')
+            ->add('title', TextType::class, [ 
+                'label' =>'Titre'
+            ])
+
+            ->add('content', TextType::class, [
+                'label' =>'Article'
+            ])
+
+            ->add('user', TextType::class, [
+                'label' => 'Auteur'
+            ])
+            ->add('category', TelType::class, [
+                'label' => 'Catégorie'
+            ])
+
             ->add('image', FileType::class, [
                 'label' => 'image (file)',
 

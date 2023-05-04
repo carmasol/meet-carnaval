@@ -8,15 +8,15 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>id</th>
+                <th>Numero</th>
                 <td>{{ comment.id }}</td>
             </tr>
             <tr>
-                <th>Content</th>
+                <th>Commentaire</th>
                 <td>{{ comment.content }}</td>
             </tr>
             <tr>
-                <th>CreatedAt</th>
+                <th>Date de Création</th>
                 <td>{{ comment.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
