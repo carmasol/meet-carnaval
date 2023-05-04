@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
+use Doctrine\DBAL\Types\TextType as TypesTextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -13,12 +14,16 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('pseudo')
-            ->add('email')
+            ->add('pseudo',TextType::class, [
+                'required' => true,
+            ])
+            ->add('email', TextType::class, [
+                'required' => true,
+            ])
             ->add('plainPassword', TextType::class, [
+                
                 'mapped' => false
             ])
-            ->add('isVerified')
         ;
     }
 

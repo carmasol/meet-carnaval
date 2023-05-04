@@ -17,21 +17,26 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [ 
+                'required' => true,
                 'label' =>'Titre'
             ])
 
             ->add('content', TextType::class, [
+                'required' => true,
                 'label' =>'Article'
             ])
 
             ->add('user', TextType::class, [
+                'required' => true,
                 'label' => 'Auteur'
             ])
             ->add('category', TelType::class, [
+                'required' => true,
                 'label' => 'Catégorie'
             ])
 
             ->add('image', FileType::class, [
+                'required' => true,
                 'label' => 'image (file)',
 
                 'mapped' => false,
