@@ -15,13 +15,9 @@
                 <th>Email</th>
                 <td>{{ user.email }}</td>
             </tr>
-            <tr>
-                <th>Valider</th>
-                <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
-            </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_profile_edit') }}">edit</a>
+    <a href="{{ path('app_profile_edit') }}">Modifier</a>
 
 {% endblock %}
