@@ -14,7 +14,7 @@ class User1Type extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('plainPassword', TextType::class, [
+            ->add('Password', TextType::class, [
                 'required' => true,
                 'mapped' => false
             ])

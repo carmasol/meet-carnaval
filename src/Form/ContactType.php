@@ -19,7 +19,7 @@ class ContactType extends AbstractType
                 'label' =>'Sujet'])
 
             ->add('content', TextType::class, [
-                'label' =>'Contenue'])
+                'label' =>'Contenu'])
 
             ->add('confirmer', SubmitType::class)
         ;

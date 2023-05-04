@@ -20,7 +20,7 @@ class UserType extends AbstractType
             ->add('email', TextType::class, [
                 'required' => true,
             ])
-            ->add('plainPassword', TextType::class, [
+            ->add('Password', TextType::class, [
                 
                 'mapped' => false
             ])
